@@ -13,6 +13,20 @@
   var lang = load("pp.lang", "en") === "ta" ? "ta" : "en";
   var done = load("pp.done", {});
 
+  /* ---------- colour scheme + brightness mode ---------- */
+  var SCHEMES = [
+    ["night", ["#0f1220", "#1b2136", "#e4b25a", "#e46c7e"]], ["ocean", ["#0b1a22", "#132b3a", "#5fc4d6", "#57c4b3"]],
+    ["forest", ["#0f1a14", "#1a2c22", "#c9b458", "#57c4b3"]], ["royal", ["#150f24", "#241a3c", "#e8b04a", "#9d8cf5"]],
+    ["temple", ["#f6efe2", "#2b2117", "#e0a84a", "#8c5a12"]], ["contrast", ["#000000", "#ffffff", "#ffd34d", "#ff8fa0"]]
+  ];
+  var theme = load("pp.theme", { scheme: "night", mode: "auto" });
+  function applyTheme() {
+    var r = document.documentElement;
+    if (theme.scheme && theme.scheme !== "night") r.setAttribute("data-scheme", theme.scheme); else r.removeAttribute("data-scheme");
+    if (theme.mode === "light" || theme.mode === "dark") r.setAttribute("data-theme", theme.mode); else r.removeAttribute("data-theme");
+  }
+  applyTheme();
+
   /* ---------- scripture book names (reused from the Relational Gospel Atlas) ---------- */
   var BOOKS = [
     ["Genesis|Gen", "ஆதியாகமம்"], ["Exodus|Exod|Ex", "யாத்திராகமம்"], ["Leviticus|Lev", "லேவியராகமம்"], ["Numbers|Num", "எண்ணாகமம்"],
@@ -497,12 +511,30 @@
   }
   $("#search-btn").addEventListener("click", openSearch);
 
+  function openTheme() {
+    layer.innerHTML = '<div class="scrim" data-close style="background:transparent"></div><div class="theme-pop" role="dialog" aria-label="' + esc(U("colourScheme")) + '"><h3>' + U("colourScheme") + '</h3><div class="swatches">' + SCHEMES.map(function (sc) {
+      return '<button class="sw" type="button" data-scheme="' + sc[0] + '" aria-pressed="' + (theme.scheme === sc[0]) + '"><span class="chipset">' + sc[1].map(function (c) { return '<i style="background:' + c + '"></i>'; }).join("") + "</span>" + U("sc_" + sc[0]) + "</button>";
+    }).join("") + '</div><span class="label">' + U("mode") + '</span><div class="modes">' + ["auto", "light", "dark"].map(function (m) { return '<button type="button" data-mode="' + m + '" aria-pressed="' + (theme.mode === m) + '">' + U("m_" + m) + "</button>"; }).join("") + '</div><p class="note">' + U("schemeNote") + "</p></div>";
+    var first = $(".theme-pop .sw[aria-pressed=\"true\"]") || $(".theme-pop .sw"); if (first) first.focus();
+  }
+  layer.addEventListener("click", function (e) {
+    var sw = e.target.closest("[data-scheme]"), md = e.target.closest("[data-mode]");
+    if (!sw && !md) return;
+    if (sw) theme.scheme = sw.getAttribute("data-scheme");
+    if (md) theme.mode = md.getAttribute("data-mode");
+    store("pp.theme", theme); applyTheme();
+    $$(".theme-pop [data-scheme]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-scheme") === theme.scheme)); });
+    $$(".theme-pop [data-mode]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-mode") === theme.mode)); });
+  });
+  $("#theme-btn").addEventListener("click", function () { if ($(".theme-pop")) closeLayer(); else openTheme(); });
+
   /* ---------- language ---------- */
   function setLangUI() {
     document.documentElement.setAttribute("lang", lang);
     $$(".lang-switch button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang)); });
     $$("[data-ui]").forEach(function (el) { el.textContent = U(el.getAttribute("data-ui")); });
     $("#search-btn").setAttribute("aria-label", U("search"));
+    $("#theme-btn").setAttribute("aria-label", U("colourScheme"));
   }
   $(".lang-switch").addEventListener("click", function (e) {
     var b = e.target.closest("[data-lang]"); if (!b || b.getAttribute("data-lang") === lang) return;

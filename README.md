@@ -7,7 +7,7 @@ An interactive, bilingual (English / தமிழ்) study atlas with four stud
 3. Music and worship in Scripture and practice
 4. Curses, demonology, generational curses and deliverance
 
-The language switch sits at the top right. Scripture references are stored once in English and converted to Tamil book names at render time, so they never need separate translation.
+The language switch sits at the top right, next to a Colours button with six schemes (Night Sky, Ocean, Forest, Royal Purple, Temple Gold, High Contrast) and Auto / Light / Dark brightness. Scripture references are stored once in English and converted to Tamil book names at render time, so they never need separate translation.
 
 ## Structure
 

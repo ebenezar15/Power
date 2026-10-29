@@ -363,3 +363,39 @@ button.card:hover { border-color: var(--acc); transform: translateY(-2px); }
 .footer a { color: var(--gold); }
 @media (max-width: 760px) { .hero, .shead { grid-template-columns: minmax(0, 1fr); } .sglyph { max-width: 140px; } main { padding-bottom: 140px; } }
 html[lang="ta"] .tabbar a { font-size: 10px; overflow-wrap: anywhere; }
+
+/* ---------- colour schemes (data-scheme) and mode (data-theme) ---------- */
+:root[data-scheme="ocean"] { --bg: #0b1a22; --bg-2: #0f2330; --surface: #132b3a; --line: #1f4256; --ink: #e6f1f4; --muted: #93b1bd; --gold: #5fc4d6; color-scheme: dark; }
+@media (prefers-color-scheme: light) { :root[data-scheme="ocean"]:not([data-theme="dark"]) { --bg: #eef5f7; --bg-2: #e1edf1; --surface: #ffffff; --line: #c8dbe2; --ink: #10262f; --muted: #4d6873; --gold: #0f7287; color-scheme: light; } }
+:root[data-scheme="ocean"][data-theme="light"] { --bg: #eef5f7; --bg-2: #e1edf1; --surface: #ffffff; --line: #c8dbe2; --ink: #10262f; --muted: #4d6873; --gold: #0f7287; color-scheme: light; }
+:root[data-scheme="ocean"][data-theme="dark"] { --bg: #0b1a22; --bg-2: #0f2330; --surface: #132b3a; --line: #1f4256; --ink: #e6f1f4; --muted: #93b1bd; --gold: #5fc4d6; color-scheme: dark; }
+:root[data-scheme="forest"] { --bg: #0f1a14; --bg-2: #14231b; --surface: #1a2c22; --line: #2b4436; --ink: #ecefe4; --muted: #a3b3a3; --gold: #c9b458; color-scheme: dark; }
+@media (prefers-color-scheme: light) { :root[data-scheme="forest"]:not([data-theme="dark"]) { --bg: #f2f3ec; --bg-2: #e7eadf; --surface: #ffffff; --line: #d2d8c6; --ink: #1a2a1f; --muted: #56665a; --gold: #6f6413; color-scheme: light; } }
+:root[data-scheme="forest"][data-theme="light"] { --bg: #f2f3ec; --bg-2: #e7eadf; --surface: #ffffff; --line: #d2d8c6; --ink: #1a2a1f; --muted: #56665a; --gold: #6f6413; color-scheme: light; }
+:root[data-scheme="forest"][data-theme="dark"] { --bg: #0f1a14; --bg-2: #14231b; --surface: #1a2c22; --line: #2b4436; --ink: #ecefe4; --muted: #a3b3a3; --gold: #c9b458; color-scheme: dark; }
+:root[data-scheme="royal"] { --bg: #150f24; --bg-2: #1c1430; --surface: #241a3c; --line: #3a2d5c; --ink: #f1ebfa; --muted: #b3a8c9; --gold: #e8b04a; color-scheme: dark; }
+@media (prefers-color-scheme: light) { :root[data-scheme="royal"]:not([data-theme="dark"]) { --bg: #f4f1f8; --bg-2: #ebe5f3; --surface: #ffffff; --line: #d9cfe6; --ink: #22183a; --muted: #625877; --gold: #8a5a00; color-scheme: light; } }
+:root[data-scheme="royal"][data-theme="light"] { --bg: #f4f1f8; --bg-2: #ebe5f3; --surface: #ffffff; --line: #d9cfe6; --ink: #22183a; --muted: #625877; --gold: #8a5a00; color-scheme: light; }
+:root[data-scheme="royal"][data-theme="dark"] { --bg: #150f24; --bg-2: #1c1430; --surface: #241a3c; --line: #3a2d5c; --ink: #f1ebfa; --muted: #b3a8c9; --gold: #e8b04a; color-scheme: dark; }
+:root[data-scheme="temple"] { --bg: #1a140e; --bg-2: #221a12; --surface: #2b2117; --line: #45362a; --ink: #f3e9d8; --muted: #bba98f; --gold: #e0a84a; color-scheme: dark; }
+@media (prefers-color-scheme: light) { :root[data-scheme="temple"]:not([data-theme="dark"]) { --bg: #f6efe2; --bg-2: #eee4d2; --surface: #fffaf1; --line: #ddcfb6; --ink: #2a1f14; --muted: #6b5a45; --gold: #8c5a12; color-scheme: light; } }
+:root[data-scheme="temple"][data-theme="light"] { --bg: #f6efe2; --bg-2: #eee4d2; --surface: #fffaf1; --line: #ddcfb6; --ink: #2a1f14; --muted: #6b5a45; --gold: #8c5a12; color-scheme: light; }
+:root[data-scheme="temple"][data-theme="dark"] { --bg: #1a140e; --bg-2: #221a12; --surface: #2b2117; --line: #45362a; --ink: #f3e9d8; --muted: #bba98f; --gold: #e0a84a; color-scheme: dark; }
+:root[data-scheme="contrast"] { --bg: #000000; --bg-2: #0a0a0a; --surface: #111111; --line: #777777; --ink: #ffffff; --muted: #e0e0e0; --gold: #ffd34d; --flame: #ffb347; --sky: #b8a8ff; --tide: #6ff0dc; --rose: #ff8fa0; color-scheme: dark; }
+@media (prefers-color-scheme: light) { :root[data-scheme="contrast"]:not([data-theme="dark"]) { --bg: #ffffff; --bg-2: #f2f2f2; --surface: #ffffff; --line: #333333; --ink: #000000; --muted: #222222; --gold: #7a4d00; --flame: #8a4300; --sky: #3a24b0; --tide: #00594d; --rose: #8f1430; color-scheme: light; } }
+:root[data-scheme="contrast"][data-theme="light"] { --bg: #ffffff; --bg-2: #f2f2f2; --surface: #ffffff; --line: #333333; --ink: #000000; --muted: #222222; --gold: #7a4d00; --flame: #8a4300; --sky: #3a24b0; --tide: #00594d; --rose: #8f1430; color-scheme: light; }
+:root[data-scheme="contrast"][data-theme="dark"] { --bg: #000000; --bg-2: #0a0a0a; --surface: #111111; --line: #777777; --ink: #ffffff; --muted: #e0e0e0; --gold: #ffd34d; --flame: #ffb347; --sky: #b8a8ff; --tide: #6ff0dc; --rose: #ff8fa0; color-scheme: dark; }
+:root[data-theme="dark"]:not([data-scheme]) { --bg: #0f1220; --bg-2: #151a2c; --surface: #1b2136; --line: #2c3450; --ink: #efe8d8; --muted: #a0a7bf; --flame: #eaa040; --sky: #9d8cf5; --tide: #57c4b3; --rose: #e46c7e; --gold: #e4b25a; color-scheme: dark; }
+:root[data-scheme="contrast"] .card, :root[data-scheme="contrast"] .panel, :root[data-scheme="contrast"] .chip { border-width: 2px; }
+html { transition: background-color .3s; }
+.theme-pop { position: fixed; z-index: 41; top: calc(env(safe-area-inset-top, 0px) + 64px); right: max(16px, env(safe-area-inset-right, 0px)); width: min(340px, calc(100% - 32px)); background: var(--bg); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); padding: 16px; display: grid; gap: 12px; animation: fade .2s both; }
+.theme-pop h3 { font-size: 17px; }
+.swatches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.sw { display: grid; gap: 6px; text-align: left; padding: 8px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); cursor: pointer; font-size: 13.5px; font-weight: 600; }
+.sw[aria-pressed="true"] { border-color: var(--gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 25%, transparent); }
+.sw .chipset { display: flex; height: 22px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); }
+.sw .chipset i { flex: 1; }
+.modes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 999px; padding: 3px; gap: 2px; }
+.modes button { border: 0; background: transparent; border-radius: 999px; padding: 6px 4px; cursor: pointer; font-size: 13px; color: var(--muted); }
+.modes button[aria-pressed="true"] { background: var(--gold); color: var(--bg); }
+

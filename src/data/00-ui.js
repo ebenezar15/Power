@@ -1,6 +1,13 @@
 window.PP = { studies: [], home: [], ui: {
   brand: ["Power & Presence", "வல்லமையும் பிரசன்னமும்"],
   search: ["Search", "தேடல்"],
+  colours: ["Colours", "வண்ணங்கள்"],
+  colourScheme: ["Colour scheme", "வண்ணத் திட்டம்"],
+  mode: ["Brightness", "ஒளிர்வு"],
+  m_auto: ["Auto", "தானியங்கி"], m_light: ["Light", "வெளிச்சம்"], m_dark: ["Dark", "இருள்"],
+  sc_night: ["Night Sky", "இரவு வானம்"], sc_ocean: ["Ocean", "கடல்"], sc_forest: ["Forest", "காடு"],
+  sc_royal: ["Royal Purple", "அரச ஊதா"], sc_temple: ["Temple Gold", "ஆலயப் பொன்"], sc_contrast: ["High Contrast", "உயர் மாறுபாடு"],
+  schemeNote: ["Saved in this browser. Each study keeps its own accent colour.", "இந்த உலாவியில் சேமிக்கப்படும். ஒவ்வொரு படிப்பும் தன் சொந்த நிறத்தை வைத்திருக்கும்."],
   searchPh: ["Search all four studies…", "நான்கு படிப்புகளிலும் தேடுங்கள்…"],
   noResults: ["Nothing matches yet. Try another word.", "பொருத்தம் இல்லை. வேறு சொல்லை முயலுங்கள்."],
   close: ["Close", "மூடு"],
